@@ -1,0 +1,9 @@
+@echo off
+echo Starting Career Tree Development Environment...
+echo.
+echo Starting MongoDB...
+net start MongoDB
+echo.
+echo Starting Server and Client...
+npm run dev
+pause
