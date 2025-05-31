@@ -8,12 +8,19 @@ const postSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    required: true,
-    maxlength: 1400
+    maxlength: 1400,
+    default: ''
   },
   image: {
     type: String,
     default: ''
+  },
+  fileInfo: {
+    file_type: String,
+    original_filename: String,
+    resource_type: String,
+    format: String,
+    bytes: Number
   },
   likes: [{
     user: {

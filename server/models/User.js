@@ -39,6 +39,36 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
+  connectionRequests: {
+    sent: [{
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
+      sentAt: {
+        type: Date,
+        default: Date.now
+      }
+    }],
+    received: [{
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
+      sentAt: {
+        type: Date,
+        default: Date.now
+      }
+    }]
+  },
+  about: {
+    type: String,
+    default: ''
+  },
+  skills: [{
+    name: String,
+    endorsements: Number
+  }],
   experience: [{
     title: String,
     company: String,

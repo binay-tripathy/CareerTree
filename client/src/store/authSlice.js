@@ -40,10 +40,10 @@ export const loadUser = createAsyncThunk(
       if (!token) {
         return rejectWithValue('No token found');
       }
-      const response = await axios.get(`${API_URL}/users/me`, {
+      const response = await axios.get(`${API_URL}/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return { user: response.data };
+      return { user: response.data, token };
     } catch (error) {
       localStorage.removeItem('token');
       return rejectWithValue(error.response?.data?.message || 'Failed to load user');
@@ -114,6 +114,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user;
+        state.token = action.payload.token;
       })
       .addCase(loadUser.rejected, (state) => {
         state.loading = false;

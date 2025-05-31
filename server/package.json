@@ -4,8 +4,8 @@
   "description": "Server for Career Tree - LinkedIn Clone",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node --max-http-header-size=80000 server.js",
+    "dev": "nodemon --max-http-header-size=80000 server.js",
     "test": "node test-api.js",
     "check": "node check-setup.js"
   },
